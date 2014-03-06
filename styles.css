@@ -1,0 +1,28 @@
+#gameboard {
+	width: 31em;
+	height: 30em;
+	background-color: #FFF;
+}
+
+.square {
+	width: 10em;
+	height: 10em;
+	float: left;
+}
+
+.center {
+	border-right: solid #000;
+	border-left: solid #000;
+}
+
+.top {
+	border-bottom: solid #000;
+}
+
+.bottom {
+	border-top: solid #000;
+}
+
+.square:hover {
+	background-color: #f1f1f1;
+}
