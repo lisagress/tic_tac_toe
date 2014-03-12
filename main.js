@@ -19,7 +19,10 @@ function selectSquare(obj, player) {
 	};
 };
 
-// currently only using player x
 function currentPlayer() {
-	return "x";
+	if ($(".selected").length % 2 == 0) {
+		return "x";
+	} else {
+		return "o";
+	}
 }; 
