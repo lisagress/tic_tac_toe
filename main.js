@@ -92,6 +92,7 @@ $(document).ready(function() {
 	$(".new_game").click(function() {
 		$(".square").empty();
 		$(".square").removeClass("selected");
-		$("#message").empty();
+		displayTurnMessage(player);
+
 	})
 });
