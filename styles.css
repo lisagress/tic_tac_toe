@@ -1,20 +1,27 @@
+body {
+	text-align: center;
+	font-family: "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace;
+}
+
 #gameboard {
 	width: 310px;
 	height: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 100px;
 	background-color: #FFF;
-	padding: 100px;
+	font-size: 50px;
 }
 
 #message {
-	font: 18px sans-serif;
-	text-align: center;
+	font-size: 32px;
+	margin: 75px;
 }
 
 .square {
 	width: 100px;
 	height: 100px;
 	float: left;
-	font: 48px sans-serif;
 	text-align: center;
 	line-height: 100px;
 	border: transparent;
@@ -35,4 +42,22 @@
 
 .square:hover {
 	background-color: #f1f1f1;
+}
+
+button {
+	height: 50px;
+	width: 150px;
+	background-color: #308D91;
+	border-radius: 15px;
+	border: none;
+	font-size: 100%;
+	color: white;
+}
+
+button:focus {
+	outline: none;
+}
+
+button:hover {
+	background-color: #4AA7AB;
 }

@@ -15,7 +15,7 @@ function currentPlayer() {
 	}
 }
 
-function displayMessage(player) {
+function displayTurnMessage(player) {
 	var message = "Player " + player + ", it's your turn!";
 	$("#message").text(message);
 }
@@ -53,7 +53,7 @@ function checkForWin() {
 
 $(document).ready(function() {
 	var player = currentPlayer();
-	displayMessage(player);
+	displayTurnMessage(player);
 
 	$(".square").click(function() {
 		selectSquare(this, player);
@@ -64,7 +64,7 @@ $(document).ready(function() {
 			$("#message").text(winMessage);
 		} else {
 			player = currentPlayer();
-			displayMessage(player);
+			displayTurnMessage(player);
 		};
 	});
 
