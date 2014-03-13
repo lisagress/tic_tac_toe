@@ -70,6 +70,12 @@ function checkGameStatus() {
 	return;
 }
 
+function startNewGame() {
+	$(".square").empty();
+	$(".square").removeClass("selected");
+	var player = currentPlayer();
+	displayTurnMessage(player);
+}
 
 $(document).ready(function() {
 	var player = currentPlayer();
@@ -90,9 +96,6 @@ $(document).ready(function() {
 	});
 
 	$(".new_game").click(function() {
-		$(".square").empty();
-		$(".square").removeClass("selected");
-		displayTurnMessage(player);
-
+		startNewGame();
 	})
 });
