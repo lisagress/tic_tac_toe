@@ -20,6 +20,16 @@ function displayTurnMessage(player) {
 	$("#message").text(message);
 }
 
+function displayDrawMessage() {
+	var drawMessage = "Bummer, the game is a draw.  Try again.";
+	$("#message").text(drawMessage);
+}
+
+function displayWinMessage(player) {
+	var winMessage = "Player " + player + ", YOU WIN!!";
+	$("#message").text(winMessage);
+}
+
 function checkThreeSquares(squares) {
 	var square1 = squares[0];
 	var square2 = squares[1];
@@ -32,7 +42,8 @@ function checkThreeSquares(squares) {
 	};
 }
 
-function checkForWin() {	
+
+function checkGameStatus() {	
 	var winningCombinations = [[".top.left", ".top.center", ".top.right"],
 								[".middle.left", ".middle.center", ".middle.right"],
 								[".bottom.left", ".bottom.center", ".bottom.right"],
@@ -41,13 +52,22 @@ function checkForWin() {
 								[".top.right", ".middle.right", ".bottom.right"],
 								[".top.left", ".middle.center", ".bottom.right"],
 								[".top.right", ".middle.center", ".bottom.left"]]
+	
+	// check for win
 	for(i = 0; i < winningCombinations.length; i++) {
 		var winFound = checkThreeSquares(winningCombinations[i]);
 		if(winFound) {
-			return true;
-		};
+			return "win";
+		}
 	}
-	return false;
+
+	// win not found.  check for draw.
+	if ($(".selected").length == 9) {
+		return "draw";
+	}
+
+	// game is neither a win nor a draw.  game continues.
+	return;
 }
 
 
@@ -57,11 +77,12 @@ $(document).ready(function() {
 
 	$(".square").click(function() {
 		selectSquare(this, player);
-		var win = checkForWin();
+		var status = checkGameStatus();
 
-		if (win) {
-			var winMessage = "Player " + player + ", YOU WIN!!";
-			$("#message").text(winMessage);
+		if (status == "win") {
+			displayWinMessage(player);
+		} else if (status == "draw") {
+			displayDrawMessage();
 		} else {
 			player = currentPlayer();
 			displayTurnMessage(player);
