@@ -15,8 +15,8 @@ function currentPlayer() {
 	}
 }
 
-function displayTurnMessage(player) {
-	var message = "Player " + player + ", it's your turn!";
+function displayTurnMessage() {
+	var message = "Player " + currentPlayer() + ", it's your turn!";
 	$("#message").text(message);
 }
 
@@ -73,16 +73,16 @@ function checkGameStatus() {
 function startNewGame() {
 	$(".square").empty();
 	$(".square").removeClass("selected");
-	var player = currentPlayer();
-	displayTurnMessage(player);
+	displayTurnMessage();
 }
 
 $(document).ready(function() {
-	var player = currentPlayer();
-	displayTurnMessage(player);
+	displayTurnMessage();
 
 	$(".square").click(function() {
+		var player = currentPlayer();
 		selectSquare(this, player);
+
 		var status = checkGameStatus();
 
 		if (status == "win") {
@@ -90,8 +90,7 @@ $(document).ready(function() {
 		} else if (status == "draw") {
 			displayDrawMessage();
 		} else {
-			player = currentPlayer();
-			displayTurnMessage(player);
+			displayTurnMessage();
 		};
 	});
 
