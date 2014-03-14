@@ -44,6 +44,14 @@ body {
 	background-color: #f1f1f1;
 }
 
+.winningSquare {
+	background-color: #7DDADE;
+}
+
+.winningSquare:hover {
+	background-color: #7DDADE;
+}
+
 button {
 	height: 50px;
 	width: 150px;

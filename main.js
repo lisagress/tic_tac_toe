@@ -36,6 +36,9 @@ function checkThreeSquares(squares) {
 	var square3 = squares[2];
 
 	if($(square1).hasClass("selected") && ($(square1).text() == $(square2).text() && $(square1).text() == $(square3).text())) {
+		$(square1).addClass("winningSquare");
+		$(square2).addClass("winningSquare");
+		$(square3).addClass("winningSquare");
 		return true;
 	} else {
 		return false;
@@ -73,6 +76,7 @@ function checkGameStatus() {
 function startNewGame() {
 	$(".square").empty();
 	$(".square").removeClass("selected");
+	$(".square").removeClass("winningSquare");
 	displayTurnMessage();
 }
 
