@@ -1,6 +1,3 @@
-tic_tac_toe
-===========
-
 #tic tac toe
 
 Read more about tic tac toe [*here*] (http://en.wikipedia.org/wiki/Tic-tac-toe).
